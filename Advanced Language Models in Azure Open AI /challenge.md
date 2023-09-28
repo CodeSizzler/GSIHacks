@@ -1,6 +1,6 @@
 <h1>Challenge</h1>
 
-In this hack, you’ll learn how different prompts for similar content help shape the AI model’s response to better satisfy your requirements.
+In this hack, you need to develop an Azure Open AI app on how different prompts for similar content help shape the AI model’s response to better satisfy your requirements.
 
 Imagine you are trying to send out information for a new wildlife rescue, and you need to get assistance from a generative AI model.
 
