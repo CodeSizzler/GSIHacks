@@ -2,7 +2,7 @@
 
 With the Azure OpenAI Service, developers can create chatbots, language models, and other applications that excel at understanding natural human language. The Azure OpenAI provides access to pre-trained AI models, as well as a suite of APIs and tools for customizing and fine-tuning these models to meet the specific requirements of your application. In this exercise, you’ll learn how to deploy a model in Azure OpenAI and use it in your own application to summarize text.
 
-When working with the Azure OpenAI Service, how developers shape their prompt greatly impacts how the generative AI model will respond. Azure OpenAI models are able to tailor and format content, if requested in a clear and concise way. In this exercise, you’ll learn how different prompts for similar content help shape the AI model’s response to better satisfy your requirements.
+When working with the Azure OpenAI Service, how developers shape their prompt greatly impacts how the generative AI model will respond. Azure OpenAI models are able to tailor and format content, if requested in a clear and concise way. In this hack, you’ll work on how different prompts for similar content help shape the AI model’s response to better satisfy your requirements.
 
 Imagine you are trying to send out information for a new wildlife rescue, and want to get assistance from a generative AI model.
 
