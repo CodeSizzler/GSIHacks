@@ -1,167 +1,117 @@
 <h1>Solution for Unlocking Possibilities: Introduction to Azure OpenAI Service</h1>
 
-With the Azure OpenAI Service, developers can create chatbots, language models, and other applications that excel at understanding natural human language. The Azure OpenAI provides access to pre-trained AI models, as well as a suite of APIs and tools for customizing and fine-tuning these models to meet the specific requirements of your application. In this exercise, you’ll learn how to deploy a model in Azure OpenAI and use it in your own application to summarize text.
+Azure OpenAI Service brings the generative AI models developed by OpenAI to the Azure platform, enabling you to develop powerful AI solutions that benefit from the security, scalability, and integration of services provided by the Azure cloud platform. In this execution, you'll learn how to get started with Azure OpenAI by provisioning the service as an Azure resource and using Azure OpenAI Studio to deploy and explore OpenAI models.
 
-<h2>Provision an Azure OpenAI resource</h2>
+## Provision an Azure OpenAI resource
 
 Before you can use Azure OpenAI models, you must provision an Azure OpenAI resource in your Azure subscription.
 
-1. Sign into the Azure portal.
-2. Create an Azure OpenAI resource with the following settings:
-- Subscription: An Azure subscription that has been approved for access to the Azure OpenAI service.
-- Resource group: Create a new resource group with a name of your choice.
-- Region: Choose any available region.
-- Name: A unique name of your choice.
-- Pricing tier: Standard S0
-
+1. Sign into the [Azure portal](https://portal.azure.com).
+2. Create an **Azure OpenAI** resource with the following settings:
+    - **Subscription**: An Azure subscription that has been approved for access to the Azure OpenAI service.
+    - **Resource group**: Create a new resource group with a name of your choice.
+    - **Region**: Choose any available region.
+    - **Name**: A unique name of your choice.
+    - **Pricing tier**: Standard S0
 3. Wait for deployment to complete. Then go to the deployed Azure OpenAI resource in the Azure portal.
-4. Navigate to Keys and Endpoint page, and save those to a text file to use later.
 
-<h2>Deploy a model</h2>
+## Deploy a model
 
-To use the Azure OpenAI API, you must first deploy a model to use through the Azure OpenAI Studio. Once deployed, we will reference that model in our app.
+Azure OpenAI provides a web-based portal named **Azure OpenAI Studio**, that you can use to deploy, manage, and explore models. You'll start your exploration of Azure OpenAI by using Azure OpenAI Studio to deploy a model.
 
-1. On the Overview page for your Azure OpenAI resource, use the Explore button to open Azure OpenAI Studio in a new browser tab.
-
+1. On the **Overview** page for your Azure OpenAI resource, use the **Explore** button to open Azure OpenAI Studio in a new browser tab.
 2. In Azure OpenAI Studio, create a new deployment with the following settings:
-- Model: gpt-35-turbo
-- Model version: Use the default version
-- Deployment name: text-turbo
+    - **Model**: gpt-35-turbo
+    - **Modev version**: Auto-update to default
+    - **Deployment name**: my-gpt-model
 
-<b>Note: Each Azure OpenAI model is optimized for a different balance of capabilities and performance. We’ll use the 3.5 Turbo model series in the GPT-3 model family in this exercise, which is highly capable for language understanding. This demo only uses a single model, however deployment and usage of other models you deploy will work in the same way.</b>
+> **Note**: Azure OpenAI includes multiple models, each optimized for a different balance of capabilities and performance. In this exercise, you'll use the **GPT-35-Turbo** model, which is a good general model for summarizing and generating natural language and code. For more information about the available models in Azure OpenAI, see [Models](https://learn.microsoft.com/azure/cognitive-services/openai/concepts/models) in the Azure OpenAI documentation.
 
-<h2>Set up an application in Cloud Shell</h2>
+## Explore a model in the Completions playground
 
-To show how to integrate with an Azure OpenAI model, we’ll use a short command-line application that runs in Cloud Shell on Azure. Open up a new browser tab to work with Cloud Shell.
+*Playgrounds* are useful interfaces in Azure OpenAI Studio that you can use to experiment with your deployed models without needing to develop your own client application.
 
-1. In the Azure portal, select the [>_] (Cloud Shell) button at the top of the page to the right of the search box. A Cloud Shell pane will open at the bottom of the portal.
+1. In Azure OpenAI Studio, in the left pane under **Playground**, select **Completions**.
+2. In the **Completions** page, ensure your **my-gpt-model** deployment is selected and then in the **Examples** list, select **Generate a quiz**.
 
-2. The first time you open the Cloud Shell, you may be prompted to choose the type of shell you want to use (Bash or PowerShell). Select Bash. If you don’t see this option, skip the step.
+    The summarize text sample consists of a *prompt* that provides some text to tell the model what kind of response is required and include some contextual information.
 
-3. If you’re prompted to create storage for your Cloud Shell, ensure your subscription is specified and select Create storage. Then wait a minute or so for the storage to be created.
+3. At the bottom of the page, note the number of *tokens* detected in the text. Tokens are the basic units of a prompt - essentially words or word-parts in the text.
+4. Use the **Generate** button to submit the prompt to the model and retrieve a response.
 
-4. Make sure the type of shell indicated on the top left of the Cloud Shell pane is switched to Bash. If it’s PowerShell, switch to Bash by using the drop-down menu.
+    The response consists of a quiz based on the example in the prompt.
 
-5. Once the terminal starts, enter the following command to download the sample application and save it to a folder called <b>azure-openai</b>.
+5. Use the **Regenerate** button to resubmit the prompt, and note that the response may vary from the original one. A generative AI model can produce new language each time it's called.
+6. Use the **View Code** button to view the code that a client application would use to submit the prompt. You can select your preferred programming language. The prompt contains the text you submitted to the model. The request is submitted to the *Completions* API for your Azure OpenAI service.
 
-        rm -r azure-openai -f
-        git clone "url"
+## Use the Chat playground
 
-6. The files are downloaded to a folder named azure-openai. Navigate to the lab files for this exercise using the following command.
+The *Chat* playground provides a chatbot interface for GPT 3.5 and higher models. It uses the *ChatCompletions* API rather than the older *Completions* API.
 
-        cd azure-openai/Labfiles/02-nlp-azure-openai
+1. In the **Playground** section, select the **Chat** page, and ensure that the **my-gpt-model** model is selected in the configuration pane on the right.
+2. In the **Assistant setup** section, in the **System message** box, replace the current text with the following statement: `The system is an AI teacher that helps people learn about AI`.
 
-Applications for both C# and Python have been provided, as well as a sample text file you’ll use to test the summarization. Both apps feature the same functionality.
+3. Below the **System message** box, click on **Add few-shot examples**, and enter the following message and response in the designated boxes:
 
-Open the built-in code editor, and observe the text file that you’ll be summarizing with your model located at text-files/sample-text.txt. Use the following command to open the 
-lab files in the code editor.
+    - **User**: `What are different types of artificial intelligence?`
+    - **Assistant**: `There are three main types of artificial intelligence: Narrow or Weak AI (such as virtual assistants like Siri or Alexa, image recognition software, and spam filters), General or Strong AI (AI designed to be as intelligent as a human being. This type of AI does not currently exist and is purely theoretical), and Artificial Superintelligence (AI that is more intelligent than any human being and can perform tasks that are beyond human comprehension. This type of AI is also purely theoretical and has not yet been developed).`
 
-    code .
+    > **Note**: Few-shot examples are used to provide the model with examples of the types of responses that are expected. The model will attempt to reflect the tone and style of the examples in its own responses.
 
-<h2>Configure your application</h2>
+4. Save the changes to start a new session and set the behavioral context of the chat system.
+5. In the query box at the bottom of the page, enter the text `What is artificial intelligence?`
+6. Use the **Send** button to submit the message and view the response.
 
-For this exercise, you’ll complete some key parts of the application to enable using your Azure OpenAI resource.
+    > **Note**: You may receive a response that the API deployment is not yet ready. If so, wait for a few minutes and try again.
 
-1. In the code editor, expand the CSharp or Python folder, depending on your language preference.
+7. Review the response and then submit the following message to continue the conversation: `How is it related to machine learning?`
+8. Review the response, noting that context from the previous interaction is retained (so the model understands that "it" refers to artificial intelligence).
+9. Use the **View Code** button to view the code for the interaction. The prompt consists of the *system* message, the few-shot examples of *user* and *assistant* messages, and the sequence of *user* and *assistant* messages in the chat session so far.
 
-2. Open the configuration file for your language
+## Explore prompts and parameters
 
-- C#: appsettings.json
-- Python: .env
+You can use the prompt and parameters to maximize the likelihood of generating the response you need.
 
-3. Update the configuration values to include the endpoint and key from the Azure OpenAI resource you created, as well as the model name that you deployed, text-turbo. Save the file.
+1. In the **Parameters** pane, set the following parameter values:
+    - **Temperature**: 0
+    - **Max length (tokens)**: 500
 
-4. Navigate to the folder for your preferred language and install the necessary packages.
+2. Submit the following message
 
-    <b>C#</b>
+    ```
+    Write three multiple choice questions based on the following text.
 
-        cd CSharp
-        
-        dotnet add package Azure.AI.OpenAI --prerelease
+    Most computer vision solutions are based on machine learning models that can be applied to visual input from cameras, videos, or images.*
 
-    <b>Python</b>
+    - Image classification involves training a machine learning model to classify images based on their contents. For example, in a traffic monitoring solution you might use an image classification model to classify images based on the type of vehicle they contain, such as taxis, buses, cyclists, and so on.*
 
-        cd Python
-        pip install python-dotenv
-        pip install openai
+    - Object detection machine learning models are trained to classify individual objects within an image, and identify their location with a bounding box. For example, a traffic monitoring solution might use object detection to identify the location of different classes of vehicle.*
 
-5. Navigate to your preferred language folder, select the code file, and add the necessary libraries.
+    - Semantic segmentation is an advanced machine learning technique in which individual pixels in the image are classified according to the object to which they belong. For example, a traffic monitoring solution might overlay traffic images with "mask" layers to highlight different vehicles using specific colors.
+    ```
 
-<b>C#</b>
+3. Review the results, which should consist of multiple-choice questions that a teacher could use to test students on the computer vision topics in the prompt. The total response should be smaller than the maximum length you specified as a parameter.
 
-        // Add Azure OpenAI package
-        using Azure.AI.OpenAI;
+    Observe the following about the prompt and parameters you used:
 
-<b>Python</b>
+    - The prompt specifically states that the desired output should be three multiple choice questions.
+    - The parameters include *Temperature*, which controls the degree to which response generation includes an element of randomness. The value of **0** used in your submission minimizes randomness, resulting in stable, predictable responses.
 
-        # Add OpenAI import
-        import openai
+## Explore code-generation
 
-6. Open up the application code for your language and add the necessary code for building the request, which specifies the various parameters for your model such as prompt and temperature.
+In addition to generating natural language responses, you can use GPT models to generate code.
 
-<b>C#</b>
+1. In the **Assistant setup** pane, select the **Empty Example** template to reset the system message.
+2. Enter the system message: `You are a Python developer.` and save the changes.
+3. In the **Chat session** pane, select **Clear chat** to clear the chat history and start a new session.
+4. Submit the following user message:
 
-    // Initialize the Azure OpenAI client
-    OpenAIClient client = new OpenAIClient(new Uri(oaiEndpoint), new AzureKeyCredential(oaiKey));
+    ```
+    Write a Python function named Multiply that multiplies two numeric parameters.
+    ```
 
-    // Build completion options object
-    ChatCompletionsOptions chatCompletionsOptions = new ChatCompletionsOptions()
-        {
-            Messages =
-            {
-            new ChatMessage(ChatRole.System, "You are a helpful assistant. Summarize the following text in 60 words or less."),
-            new ChatMessage(ChatRole.User, text),
-            },
-            MaxTokens = 120,
-            Temperature = 0.7f,
-        };
+5. Review the response, which should include sample Python code that meets the requirement in the prompt.
 
-    // Send request to Azure OpenAI model
-    ChatCompletions response = client.GetChatCompletions(
-            deploymentOrModelName: oaiModelName, 
-            chatCompletionsOptions);
-        string completion = response.Choices[0].Message.Content;
+## Clean up
 
-    Console.WriteLine("Summary: " + completion + "\n");
-
-<b>Python</b>
-
-    # Set OpenAI configuration settings
-    openai.api_type = "azure"
-    openai.api_base = azure_oai_endpoint
-    openai.api_version = "2023-03-15-preview"
-    openai.api_key = azure_oai_key
-
-    # Send request to Azure OpenAI model
-    print("Sending request for summary to Azure OpenAI endpoint...\n\n")
-    response = openai.ChatCompletion.create(
-            engine=azure_oai_model,
-            temperature=0.7,
-            max_tokens=120,
-            messages=[
-            {"role": "system", "content": "You are a helpful assistant. Summarize the following text in 60 words or less."},
-                {"role": "user", "content": text}
-            ]
-        )
-
-    print("Summary: " + response.choices[0].message.content + "\n")
-
-<h2>Run your application</h2>
-
-Now that your app has been configured, run it to send your request to your model and observe the response.
-
-1. In the Cloud Shell bash terminal, navigate to the folder for your preferred language.
-
-2. Run the application.
-
-- C#: dotnet run
-- Python: python test-openai-model.py
-
-3. Observe the summarization of the sample text file.
-4. Navigate to your code file for your preferred language, and change the temperature value to 1. Save the file.
-5. Run the application again, and observe the output.
-
-Increasing the temperature often causes the summary to vary, even when provided the same text, due to the increased randomness. You can run it several times to see how the output may change. Try using different values for your temperature with the same input.
-
-<h2>Clean up</h2>
-When you’re done with your Azure OpenAI resource, remember to delete the deployment or the entire resource in the Azure portal.
+When you're done with your Azure OpenAI resource, remember to delete the deployment or the entire resource in the [Azure portal](https://portal.azure.com).
