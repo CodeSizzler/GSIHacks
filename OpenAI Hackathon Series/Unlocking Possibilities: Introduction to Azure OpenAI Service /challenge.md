@@ -1,6 +1,6 @@
 <h1> Challenge</h1> 
 
-In this OpenHack, you need to deploy an Azure OpenAI model and generate responses from then with the SDK. You need to explore different parameters that are passed with the request, how to include the library, and how to request a generated response.
+In this OpenHack, get started with Azure OpenAI by provisioning the service as an Azure resource and using Azure OpenAI Studio to deploy and explore OpenAI models.
 
 <b>You have been given a sandbox environment for this demo and you can use the same to execute the solution for the hack scenario.</b>
 
