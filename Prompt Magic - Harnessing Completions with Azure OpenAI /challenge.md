@@ -1,6 +1,6 @@
 <h1>Challenge</h1>
 
-In this Hack, you need to Generate Creative Text with Prompt Magic, You can use Prompt Magic to generate creative text formats, such as poems, code, scripts, musical pieces, email, letters, etc. Be as creative as possible and push the boundaries of what is possible with Prompt Magic.
+In this Hack, you need to develop a solution to submit natural language prompts that describe a desired image, and the model will generate an original image based on the description you provide.
 
 <b>You have been given a sandbox environment for this demo and you can use the same to execute the solution for the hack scenario.</b>
 
