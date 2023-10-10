@@ -1,4 +1,4 @@
-<h1>Solution for Prompt Magic - Harnessing Completions with Azure Open AI</h1>
+<h1>Solution for DALL-E Unveiled: What's possible with image synthesis</h1>
 
 The Azure OpenAI Service includes an image-generation model named DALL-E. You can use this model to submit natural language prompts that describe a desired image, and the model will generate an original image based on the description you provide.
 
