@@ -8,4 +8,4 @@ In this Hack, you need to develop a solution to submit natural language prompts 
 
 - To sign up for a free Azure subscription, visit https://azure.microsoft.com/free.
 - To request access to the Azure OpenAI service, visit https://aka.ms/oaiapply.
-- Introduction to Azure OpenAI, visit (https://learn.microsoft.com/en-us/training/modules/explore-azure-openai/)
+- Generate images with Azure OpenAI, visit https://learn.microsoft.com/en-us/training/modules/generate-images-azure-openai/
