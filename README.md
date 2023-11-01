@@ -1,1 +1,1 @@
-# JSNOpenAI
+# GSIHacks
