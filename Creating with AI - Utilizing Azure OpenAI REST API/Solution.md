@@ -1,10 +1,33 @@
-<h1>Solution for using Azure OpenAI REST API</h1>
+<h1>Creating with AI - Utilizing Azure OpenAI REST API</h1>
+
+Azure Open AI offers a REST API for interacting and generating responses that developers can use to add AI functionality to their apps. 
+
+## Learning Objective
+In this Hack, you will learn about example usage, input and output from the Azure OpenAI REST API.
+
+For each call to the REST API, you need the endpoint and a key from your Azure OpenAI resource, and the name you gave for your deployed model. In the following tasks, the below placeholders are to be used. Be sure to note this information in Notepad.
+
+|Placeholder name    | Value |
+| ----------- | ----------- |
+|YOUR_ENDPOINT_NAME     |This base endpoint is found in the Keys & Endpoint section on your Azure OpenAI resource in the Azure portal. It's the base endpoint of your resource, such as https://sample.openai.azure.com/.     |
+| YOUR_API_KEY   | Keys are found in the Keys & Endpoint section on your Azure OpenAI resource in the Azure portal. You can use either KEY1 or KEY2.        |
+|YOUR_DEPLOYMENT_NAME  | This deployment name is the name of the model you created in the previous exercise within Azure OpenAI Studio. It should be my-gpt-model       |
+
+
+![image](https://github.com/CodeSizzler/JSNOpenAI/assets/100184267/a8f47c01-3e41-4fc1-b6ca-0c6601864d90)
+
 
 Azure Open AI offers a REST API for interacting and generating responses that developers can use to add AI functionality to their apps.
 
 Time estimate – 1 hour
 
 You can send a prompt to the Azure OpenAI service using a which POST request. One endpoint is completions generated the completion of your prompt.
+
+## Pre-requisites
+
+- You need to have Windows 11 OS.
+- Microsoft Edge browser.
+- Collect your Azure Cloud account credentials to execute the labs.
 
 ## Task 1 - Completions
 
