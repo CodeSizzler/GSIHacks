@@ -1,19 +1,27 @@
-<h1>Solution for Advanced language models in Azure Open AI</h1>
+<h1>Advanced language models in Azure Open AI</h1>
 
-With the Azure OpenAI Service, developers can create chatbots, language models, and other applications that excel at understanding natural human language. The Azure OpenAI provides access to pre-trained AI models, as well as a suite of APIs and tools for customizing and fine-tuning these models to meet the specific requirements of your application. In this exercise, you’ll learn how to deploy a model in Azure OpenAI and use it in your own application to summarize text.
+With the Azure OpenAI Service, developers can create chatbots, language models, and other applications that excel at understanding natural human language. The Azure OpenAI provides access to pre-trained AI models, as well as a suite of APIs and tools for customizing and fine-tuning these models to meet the specific requirements of your application. 
 
-When working with the Azure OpenAI Service, how developers shape their prompt greatly impacts how the generative AI model will respond. Azure OpenAI models are able to tailor and format content, if requested in a clear and concise way. In this hack, you’ll work on how different prompts for similar content help shape the AI model’s response to better satisfy your requirements.
+## Learning Objective
+In this exercise, you’ll learn how to deploy a model in Azure OpenAI and use it in your own application to summarize text. When working with the Azure OpenAI Service, how developers shape their prompt greatly impacts how the generative AI model will respond. Azure OpenAI models are able to tailor and format content, if requested in a clear and concise way. In this hack, you’ll work on how different prompts for similar content help shape the AI model’s response to better satisfy your requirements.
 
 Imagine you are trying to send out information for a new wildlife rescue, and want to get assistance from a generative AI model.
 
+## Pre-requisites
+
+- You need to have Windows 11 OS.
+- Install [Visual Studio Code](https://visualstudio.microsoft.com/).
+- Install [C#](https://www.microsoft.com/en-in/download/details.aspx?id=8193) or download the latest version of [Python](https://www.python.org/downloads/).
+- Collect your Azure Cloud account credentials to execute the labs.
+  
 ## Provision an Azure OpenAI resource
 
 Before you can use Azure OpenAI models, you must provision an Azure OpenAI resource in your Azure subscription.
 
 1. Sign into the [Azure portal](https://portal.azure.com).
 2. Create an **Azure OpenAI** resource with the following settings:
-    - **Subscription**: An Azure subscription that has been approved for access to the Azure OpenAI service.
-    - **Resource group**: Create a new resource group with a name of your choice.
+    - **Subscription**: Pick the existing subscription given to you (named as Microsoft Azure Enterprise - xxx).
+    - **Resource group**: Use the resource group which has been provided to you.
     - **Region**: Choose any available region.
     - **Name**: A unique name of your choice.
     - **Pricing tier**: Standard S0
