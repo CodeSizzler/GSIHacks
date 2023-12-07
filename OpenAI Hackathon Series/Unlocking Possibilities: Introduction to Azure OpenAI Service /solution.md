@@ -1,6 +1,17 @@
-<h1>Solution for Unlocking Possibilities: Introduction to Azure OpenAI Service</h1>
+<h1>Unlocking Possibilities: Introduction to Azure OpenAI Service</h1>
 
-Azure OpenAI Service brings the generative AI models developed by OpenAI to the Azure platform, enabling you to develop powerful AI solutions that benefit from the security, scalability, and integration of services provided by the Azure cloud platform. In this execution, you'll learn how to get started with Azure OpenAI by provisioning the service as an Azure resource and using Azure OpenAI Studio to deploy and explore OpenAI models.
+Azure OpenAI Service brings the generative AI models developed by OpenAI to the Azure platform, enabling you to develop powerful AI solutions that benefit from the security, scalability, and integration of services provided by the Azure cloud platform. 
+
+## Learning Objective
+In this execution, you'll learn how to get started with Azure OpenAI by provisioning the service as an Azure resource and using Azure OpenAI Studio to deploy and explore OpenAI models.
+
+## Pre-requisites
+
+- You need to have Windows 11 OS.
+- Install [Visual Studio Code](https://visualstudio.microsoft.com/).
+- Install [C#](https://www.microsoft.com/en-in/download/details.aspx?id=8193) or download the latest version of [Python](https://www.python.org/downloads/).
+- Collect your Azure Cloud account credentials to execute the labs.
+
 
 ## Provision an Azure OpenAI resource
 
@@ -8,9 +19,9 @@ Before you can use Azure OpenAI models, you must provision an Azure OpenAI resou
 
 1. Sign into the [Azure portal](https://portal.azure.com).
 2. Create an **Azure OpenAI** resource with the following settings:
-    - **Subscription**: An Azure subscription that has been approved for access to the Azure OpenAI service.
-    - **Resource group**: Create a new resource group with a name of your choice.
-    - **Region**: Choose any available region.
+    - **Subscription**: Pick the existing subscription given to you (named as Microsoft Azure Enterprise - xxx).
+    - **Resource group**: Use the resource group which has been provided to you.
+    - **Region**: Choose any of the Data Center region of your choice.
     - **Name**: A unique name of your choice.
     - **Pricing tier**: Standard S0
 3. Wait for deployment to complete. Then go to the deployed Azure OpenAI resource in the Azure portal.
