@@ -1,6 +1,16 @@
-<h1>Solution for DALL-E Unveiled: What's possible with image synthesis</h1>
+<h1>DALL-E Unveiled: What's possible with image synthesis</h1>
 
 The Azure OpenAI Service includes an image-generation model named DALL-E. You can use this model to submit natural language prompts that describe a desired image, and the model will generate an original image based on the description you provide.
+
+## Learning Objective
+In this Hack, you need to develop a solution to submit natural language prompts that describe a desired image, and the model will generate an original image based on the description you provide.
+
+## Pre-requisites
+
+- You need to have Windows 11 OS.
+- Install [Visual Studio Code](https://visualstudio.microsoft.com/).
+- Install [C#](https://www.microsoft.com/en-in/download/details.aspx?id=8193) or download the latest version of [Python](https://www.python.org/downloads/).
+- Collect your Azure Cloud account credentials to execute the labs.
 
 ## Provision an Azure OpenAI resource
 
@@ -8,8 +18,8 @@ Before you can use Azure OpenAI models, you must provision an Azure OpenAI resou
 
 1. Sign into the [Azure portal](https://portal.azure.com).
 2. Create an **Azure OpenAI** resource with the following settings:
-    - **Subscription**: An Azure subscription that has been approved for access to the Azure OpenAI service.
-    - **Resource group**: Create a new resource group with a name of your choice.
+    - **Subscription**: Pick the existing subscription given to you (named as Microsoft Azure Enterprise - xxx).
+    - **Resource group**: Use the resource group which has been provided to you.
     - **Region**: Choose **EastUS** as region
     - **Name**: A unique name of your choice.
     - **Pricing tier**: Standard S0
